@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	FILE *file;
+	char lines[][100]={"Line 1:Appended line 1","Line 2:Appended line 2","Line 3:Appended line 3"};
+	int num_lines=sizeof(lines)/sizeof(lines[0]);
+	int i;
+	file=fopen("example.txt","a");
+	if(file==NULL)
+	{
+		printf("Error opening the file.\n");
+		return 1;
+	}
+	for(i=0;i<num_lines;i++)
+	{
+		fprintf(file,"%s\n",lines[i]);
+	}
+	fclose(file);
+	printf("Lines appended successfully.\n");
+	return 0;
+}
